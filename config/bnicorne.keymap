@@ -8,6 +8,17 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define BAS_L 0
+#define M_L 1
+#define FM_L 2
+#define OH_L 3
+#define CMD_L 4
+#define NAV_L 5
+#define NUM_L 6
+#define WIN_L 7
+#define BOOT_L 8
+
+
 / {
 
         behaviors {
@@ -22,46 +33,90 @@
         };
         keymap {
                 compatible = "zmk,keymap";
-
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
+                base_layer {
+                    label = "Base";
+                    bindings = <
+        &mo BOOT_L  &kp LG(LALT)  &kp W           &kp E         &kp R           &kp T   &kp Y   &kp U           &kp I         &kp O         &none   &mo BOOT_L
+        &kp Q       &kp A         &ht_hp LALT S   &ht_hp LGUI D &ht_hp LCTRL F  &kp G   &kp H   &ht_hp LCTRL J  &ht_hp LGUI K &ht_hp LALT L &kp P   &kp SEMI
+        &kp CAPS    &kp Z         &kp X           &kp C         &kp V           &kp B   &kp N   &kp M           &kp COMMA     &kp DOT       &kp SQT &kp RSHIFT
+        &mo NUM_L &kp LSHFT &mo CMD_L &kp SPACE &mo NAV_L &none
+                    >;
                 };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
+            mouse_layer {
+              label = "Mouse";
+              bindings = <
+        &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
+        &none &none   &none   &none   &mo FM_L  &none   &msc SCRL_DOWN  &msc SCRL_RIGHT &mmv MOVE_UP    &msc SCRL_LEFT    &none         &none
+        &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &mkp RCLK     &none
+        &trans  &trans  &trans  &mkp LCLK &trans  &none
+                    >;
+            };
+            fast_mouse_layer {
+              label = "FastMouse";
+              bindings = <
+        &none &none   &none   &none   &none     &none   &none           &none           &none               &none             &none         &none
+        &none &none   &none   &none   &none     &none   &msc SCRL_DOWN  &msc SCRL_RIGHT &mmv MOVE_Y(-1500)  &msc SCRL_LEFT    &none         &none
+        &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_X(-1500)  &mmv MOVE_Y(1500)  &mmv
+        MOVE_X(1500)   &mkp RCLK     &none
+        &trans  &trans  &trans  &mkp LCLK &trans  &none
+                    >;
+            };
+            one_hand_layer {
+              label = "OneHand";
+              bindings = <
+        &none &none &none &none   &none     &none   &none &none         &none     &none         &none         &none
+        &none &none &none &none   &none     &none   &none &kp LC(LEFT)  &kp UP    &kp LC(RIGHT) &none         &none
+        &none &none &none &none   &none     &none   &none &kp LEFT      &kp DOWN  &kp RIGHT     &kp LG(BSPC)  &none
+        &none &none &trans  &kp SPACE &trans  &none
+                    >;
+            };
+                left_cmd_layer {
+                    label = "Cmd";
+                    bindings = <
+        &kp LC(LG(Q)) &none     &kp LG(LS(Z)) &kp LG(W) &kp LG(R) &kp LG(T) &kp CARET     &kp AMPS &kp LPAR  &kp RPAR  &none &kp LC(F8)
+        &kp LG(TAB)   &kp LG(A) &kp TAB       &to BAS_L &kp ESC   &kp LG(F) &kp ASTRK     &kp BSPC &kp LC(X) &kp MINUS &kp COLON &none
+        &kp LS(TAB)   &kp LG(Z) &kp LG(X)     &kp LC(C) &kp LG(C) &kp LG(V) &kp LA(LG(V)) &kp LBKT &kp RBKT  &kp UNDER &none   &kp RSHIFT
+        &none &none &none &kp ENTER &mo NAV_L &none
+                    >;
                 };
 
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
+                right_nav_layer {
+                    label = "Nav";
+                    bindings = <
+        &kp LC(F3)      &none       &none           &kp LBRC    &kp RBRC   &none     &kp LG(GRAVE) &kp LA(LG(Y))  &kp UP    &kp EQUAL &none     &none
+        &none           &kp LG(N1)  &kp LS(LC(TAB)) &kp LC(TAB) &kp DOLLAR &kp PRCNT &kp LS(LG(C)) &kp LEFT       &kp DOWN  &kp RIGHT &kp LG(Y) &kp LG(BSPC)
+        &kp LG(LS(T))   &kp EXCL    &kp AT          &kp HASH    &kp TILDE  &kp GRAVE &kp LS(LG(N)) &kp BSLH       &to M_L   &kp SLASH &none     &to OH_L
+        &none &kp LSHFT &mo CMD_L &none &none &none
+                    >;
+                };
+
+                left_num_layer {
+                    label = "Num";
+                    bindings = <
+        &kp LG(BSPC)  &none  &kp LC(LS(PG_UP))  &kp LG(LS(N5))      &kp LC(LS(PG_DN)) &none         &none       &kp N7 &kp N8 &kp N9  &none   &kp K_MUTE
+        &none         &none  &kp LG(LBKT)       &kp LC(LG(LS(N4)))  &kp LG(RBKT)      &kp LS(LG(G)) &kp PG_UP   &kp N4 &kp N5 &kp N6  &kp DOT &kp K_VOLUME_UP
+        &none         &none  &none              &kp LG(LS(N4))      &none             &none         &kp PG_DN   &kp N1 &kp N2 &kp N3  &none   &kp K_VOLUME_DOWN
+        &none                    &none          &none              &kp LS(ENTER)   &kp N0 &none
+                    >;
+                };
+                window_layer {
+                    label = "WindowManagement";
+                    bindings = <
+        &kp LS(LA(Z))       &none               &none               &kp LG(LA(LS(L)))       &kp LG(LA(LS(H)))       &none             &none &kp LC(LEFT)  &kp LC(UP)        &kp LC(RIGHT)   &none  &none
+        &kp LC(N1)          &kp LC(N2)          &kp LC(N3)          &kp LC(N4)          &kp LC(N5)          &kp LA(LS(SPACE))
+        &none &kp LG(LA(LS(J))) &kp LA(LS(ENTER)) &kp LG(LA(LS(K)))   &none  &kp LS(LA(M))
+        &kp LC(LS(LA(N1)))  &kp LC(LS(LA(N2)))  &kp LC(LS(LA(N3)))  &kp LC(LS(LA(N4)))  &kp LC(LS(LA(N5)))  &kp LA(LS(T))     &none &none         &none             &none           &none  &none
+        &none &none &none &none &none &none
+                    >;
+                };
+                boot_layer {
+                    label = "bootloader";
+                    bindings = <
+                        &none         &none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR    &none &none &none &none &none &none &none
+                        &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &none &none &none &none &none &none &none
+                        &none &none &none &none &none &none &none &none &none &none &none &none
+                                    &bootloader &none &none &none &none &none &none &bootloader
+                    >;
                 };
         };
 };
