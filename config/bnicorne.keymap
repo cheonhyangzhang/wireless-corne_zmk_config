@@ -36,6 +36,14 @@
               time-to-max-speed-ms = <200>;  // smoother than QMK’s 40ms steps
               acceleration-exponent = <1>;   // uniform acceleration (QMK-like)
           };
+          mouse_mt: mouse_mt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOUSE_MT";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "hold-preferred";
+          };
         };
 
         conditional_layers {
@@ -63,7 +71,7 @@
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
         &none &none   &none   &none   &none  &none   &msc SCRL_DOWN  &msc SCRL_RIGHT &mmv MOVE_UP    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &mkp RCLK     &none
+        &none &none   &none   &none   &none     &none   &msc SCRL_UP  &mouse_mt &mmv MOVE_LEFT(1) &mmv MOVE_LEFT(6)  &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
