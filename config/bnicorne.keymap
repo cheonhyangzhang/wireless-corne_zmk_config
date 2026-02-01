@@ -31,10 +31,10 @@
               bindings = <&kp>, <&kp>;
           };
           mmv {
-            x-input-code = <INPUT_REL_X>;
-            y-input-code = <INPUT_REL_Y>;
-            time-to-max-speed-ms = <500>;
-            acceleration-exponent = <1>;
+              trigger-period-ms = <16>;      // ≈ MOUSEKEY_INTERVAL 16
+              delay-ms = <0>;                // ≈ MOUSEKEY_DELAY 0
+              time-to-max-speed-ms = <200>;  // smoother than QMK’s 40ms steps
+              acceleration-exponent = <1>;   // uniform acceleration (QMK-like)
           };
         };
 
