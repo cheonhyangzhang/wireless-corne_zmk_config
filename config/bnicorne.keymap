@@ -30,6 +30,15 @@
               bindings = <&kp>, <&kp>;
           };
         };
+
+        conditional_layers {
+          compatible = "zmk,conditional-layers";
+          tri_layer {
+                if-layers = <CMD_L NAV_L>;
+                then-layer = <WIN_L>;
+          };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
                 base_layer {
