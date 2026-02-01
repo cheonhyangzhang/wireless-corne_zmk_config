@@ -10,13 +10,12 @@
 
 #define BAS_L 0
 #define M_L 1
-#define FM_L 2
-#define OH_L 3
-#define CMD_L 4
-#define NAV_L 5
-#define NUM_L 6
-#define WIN_L 7
-#define BOOT_L 8
+#define OH_L 2
+#define CMD_L 3
+#define NAV_L 4
+#define NUM_L 5
+#define WIN_L 6
+#define BOOT_L 7
 
 
 / {
@@ -45,20 +44,18 @@
             mouse_layer {
               label = "Mouse";
               bindings = <
+
+                        &none &none &none &none &none &none &none &none &none &none &none &none
+                        &none &none &none &none &none &none &none &none &none &none &none &none
+                        &none &none &none &none &none &none &none &none &none &none &none &none
+                        &none &none &none &none &none &none
+
+                        /*
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
         &none &none   &none   &none   &mo FM_L  &none   &msc SCRL_DOWN  &msc SCRL_RIGHT &mmv MOVE_UP    &msc SCRL_LEFT    &none         &none
         &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT   &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
-                    >;
-            };
-            fast_mouse_layer {
-              label = "FastMouse";
-              bindings = <
-        &none &none   &none   &none   &none     &none   &none           &none           &none               &none             &none         &none
-        &none &none   &none   &none   &none     &none   &msc SCRL_DOWN  &msc SCRL_RIGHT &mmv MOVE_Y(-1500)  &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_X(-1500)  &mmv MOVE_Y(1500)  &mmv
-        MOVE_X(1500)   &mkp RCLK     &none
-        &trans  &trans  &trans  &mkp LCLK &trans  &none
+        */
                     >;
             };
             one_hand_layer {
