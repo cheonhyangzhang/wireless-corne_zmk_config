@@ -48,6 +48,17 @@
             tapping-term-ms = <200>;
             bindings = <&mmv>, <&mmv>;
           };
+          mouse_move_right_slow: mouse_move_right_slow {
+                compatible = "zmk,behavior-mouse-move";
+                x = <MOUSE_SLOW>;
+                y = <0>;
+          };
+
+          mouse_move_right_fast: mouse_move_right_fast {
+                compatible = "zmk,behavior-mouse-move";
+                x = <MOUSE_FAST>;
+                y = <0>;
+          };
         };
 
         conditional_layers {
