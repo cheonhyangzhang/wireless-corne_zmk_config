@@ -45,7 +45,7 @@
           mouse_ht_hp_x: mouse_ht_hp_x {
               compatible = "zmk,behavior-hold-tap";
               label = "MOUSE_MOVE";
-              #binding-cells = <0>;
+              #binding-cells = <2>;
               tapping-term-ms = <MOUSE_TAPPING_TERM>;
               flavor = "tap-preferred";
               bindings = <&mmv>, <&mmv>;
