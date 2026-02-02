@@ -18,6 +18,8 @@
 #define WIN_L 6
 #define BOOT_L 7
 
+#define MOUSE_SPEED 1500
+#define MOUSE_SCROLL_SPEED 100
 
 / {
 
@@ -32,9 +34,9 @@
           };
           mmv {
               trigger-period-ms = <16>;      // ≈ MOUSEKEY_INTERVAL 16
-              delay-ms = <0>;                // ≈ MOUSEKEY_DELAY 0
-              time-to-max-speed-ms = <400>;  // smoother than QMK’s 40ms steps
-              acceleration-exponent = <1>;   // uniform acceleration (QMK-like)
+              delay-ms = <20>;                // ≈ MOUSEKEY_DELAY 0
+              time-to-max-speed-ms = <800>;  // smoother than QMK’s 40ms steps
+              acceleration-exponent = <0>;
           };
         };
 
@@ -62,8 +64,8 @@
               bindings = <
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
-        &none &none   &none   &none   &none  &none   &msc SCRL_DOWN  &msc SCRL_RIGHT &mmv MOVE_Y(-1000)    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_X(-1000)  &mmv MOVE_Y(1000)  &mmv MOVE_X(1000)   &mkp RCLK     &none
+        &none &none   &none   &none   &none  &none   &msc SCRL_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &mmv MOVE_Y(-MOUSE_SPEED)    &msc SCRL_LEFT    &none         &none
+        &none &none   &none   &none   &none     &none   &msc SCRL_Y(MOUSE_SCROLL_SPEED)    &mmv MOVE_X(-MOUSE_SPEED)  &mmv MOVE_Y(MOUSE_SPEED)  &mmv MOVE_X(MOUSE_SPEED)   &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
