@@ -33,8 +33,8 @@
           mmv {
               trigger-period-ms = <16>;      // ≈ MOUSEKEY_INTERVAL 16
               delay-ms = <0>;                // ≈ MOUSEKEY_DELAY 0
-              time-to-max-speed-ms = <200>;  // smoother than QMK’s 40ms steps
-              acceleration-exponent = <1>;   // uniform acceleration (QMK-like)
+              time-to-max-speed-ms = <400>;  // smoother than QMK’s 40ms steps
+              acceleration-exponent = <0.8>;   // uniform acceleration (QMK-like)
           };
         };
 
@@ -63,7 +63,7 @@
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
         &none &none   &none   &none   &none  &none   &msc SCRL_DOWN  &msc SCRL_RIGHT &mmv MOVE_Y(-1000)    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_X(-1000)  &mmv MOVE_Y(5000)  &mmv MOVE_X(5000)   &mkp RCLK     &none
+        &none &none   &none   &none   &none     &none   &msc SCRL_UP    &mmv MOVE_X(-1000)  &mmv MOVE_Y(1000)  &mmv MOVE_X(1000)   &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
