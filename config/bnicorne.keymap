@@ -30,7 +30,7 @@
               flavor = "tap-preferred";
               bindings = <&kp>, <&kp>;
           };
-          &mmv {
+          mmv {
               trigger-period-ms = <16>;      // ≈ MOUSEKEY_INTERVAL 16
               delay-ms = <0>;                // ≈ MOUSEKEY_DELAY 0
               time-to-max-speed-ms = <200>;  // smoother than QMK’s 40ms steps
