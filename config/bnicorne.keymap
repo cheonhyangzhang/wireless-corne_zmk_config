@@ -42,51 +42,13 @@
               acceleration-exponent = <0>;
           };
 
-
-          mouse_move_right: mouse_move_right {
+          mouse_ht_hp_x: mouse_ht_hp_x {
               compatible = "zmk,behavior-hold-tap";
-              label = "MOUSE_MOVE_RIGHT";
+              label = "MOUSE_MOVE";
               #binding-cells = <0>;
               tapping-term-ms = <MOUSE_TAPPING_TERM>;
               flavor = "tap-preferred";
-              bindings = <
-                  &mmv MOVE_X(MOUSE_SLOW)
-                  &mmv MOVE_X(MOUSE_FAST)
-              >;
-          };
-
-          mouse_move_left: mouse_move_left {
-              compatible = "zmk,behavior-hold-tap";
-              label = "MOUSE_MOVE_LEFT";
-              #binding-cells = <0>;
-              tapping-term-ms = <MOUSE_TAPPING_TERM>;
-              flavor = "tap-preferred";
-              bindings = <
-                  &mmv MOVE_X(-MOUSE_SLOW)
-                  &mmv MOVE_X(-MOUSE_FAST)
-              >;
-          };
-          mouse_move_down: mouse_move_down {
-              compatible = "zmk,behavior-hold-tap";
-              label = "MOUSE_MOVE_DOWN";
-              #binding-cells = <0>;
-              tapping-term-ms = <MOUSE_TAPPING_TERM>;
-              flavor = "tap-preferred";
-              bindings = <
-                  &mmv MOVE_Y(MOUSE_SLOW)
-                  &mmv MOVE_Y(MOUSE_FAST)
-              >;
-          };
-          mouse_move_up: mouse_move_up {
-              compatible = "zmk,behavior-hold-tap";
-              label = "MOUSE_MOVE_UP";
-              #binding-cells = <0>;
-              tapping-term-ms = <MOUSE_TAPPING_TERM>;
-              flavor = "tap-preferred";
-              bindings = <
-                  &mmv MOVE_Y(-MOUSE_SLOW)
-                  &mmv MOVE_Y(-MOUSE_FAST)
-              >;
+              bindings = <&move_x>, <&move_x>;
           };
         };
 
@@ -114,8 +76,8 @@
               bindings = <
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
-        &none &none   &none   &none   &none  &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &mouse_move_up    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &mouse_move_left    &mouse_move_down  &mouse_move_right  &mkp RCLK     &none
+        &none &none   &none   &none   &none  &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &none    &msc SCRL_LEFT    &none         &none
+        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &none    &none  &none  &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
