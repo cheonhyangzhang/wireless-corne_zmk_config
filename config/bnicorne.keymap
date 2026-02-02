@@ -39,7 +39,7 @@
           mmv {
               trigger-period-ms = <16>;      // ≈ MOUSEKEY_INTERVAL 16
               delay-ms = <20>;                // ≈ MOUSEKEY_DELAY 0
-              time-to-max-speed-ms = <10000>;  // smoother than QMK’s 40ms steps
+              time-to-max-speed-ms = <20000>;  // smoother than QMK’s 40ms steps
               acceleration-exponent = <1>;
           };
         };
