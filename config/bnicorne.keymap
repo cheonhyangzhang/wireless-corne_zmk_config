@@ -41,14 +41,12 @@
               time-to-max-speed-ms = <800>;  // smoother than QMK’s 40ms steps
               acceleration-exponent = <0>;
           };
-
-          mouse_ht_hp_x: mouse_ht_hp_x {
-              compatible = "zmk,behavior-hold-tap";
-              label = "MOUSE_MOVE";
-              #binding-cells = <2>;
-              tapping-term-ms = <MOUSE_TAPPING_TERM>;
-              flavor = "tap-preferred";
-              bindings = <&mmv>, <&mmv>;
+          mouse_mt: mouse_mt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
           };
         };
 
@@ -77,7 +75,7 @@
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
         &none &none   &none   &none   &none  &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &none    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &none    &none  &none  &mkp RCLK     &none
+        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &mouse_mt MOVE_X(-MOUSE_SLOW) MOVE_X(-MOUSE_FAST)    &none  &none  &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
