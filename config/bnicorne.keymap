@@ -64,8 +64,8 @@
               bindings = <
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
-        &none &none   &none   &none   &none  &none   &msc SCRL_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &mmv MOVE_Y(-MOUSE_SPEED)    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none   &msc SCRL_Y(MOUSE_SCROLL_SPEED)    &mmv MOVE_X(-MOUSE_SPEED)  &mmv MOVE_Y(MOUSE_SPEED)  &mmv MOVE_X(MOUSE_SPEED)   &mkp RCLK     &none
+        &none &none   &none   &none   &none  &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &mmv MOVE_Y(-MOUSE_SPEED)    &msc SCRL_LEFT    &none         &none
+        &none &none   &none   &none   &none     &none   &msc MOVE_Y(MOUSE_SCROLL_SPEED)    &mmv MOVE_X(-MOUSE_SPEED)  &mmv MOVE_Y(MOUSE_SPEED)  &mmv MOVE_X(MOUSE_SPEED)   &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
