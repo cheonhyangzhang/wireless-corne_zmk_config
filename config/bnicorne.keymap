@@ -18,7 +18,7 @@
 #define WIN_L 6
 #define BOOT_L 7
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 200  // default: 600
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 100  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
 #define MOUSE_FAST 1000
 #define MOUSE_SLOW 120
@@ -39,7 +39,7 @@
           mmv {
               trigger-period-ms = <16>;      // ≈ MOUSEKEY_INTERVAL 16
               delay-ms = <20>;                // ≈ MOUSEKEY_DELAY 0
-              time-to-max-speed-ms = <20000>;  // smoother than QMK’s 40ms steps
+              time-to-max-speed-ms = <10000>;  // smoother than QMK’s 40ms steps
               acceleration-exponent = <1>;
           };
         };
