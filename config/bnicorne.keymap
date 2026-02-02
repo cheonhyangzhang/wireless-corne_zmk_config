@@ -32,8 +32,8 @@
               flavor = "tap-preferred";
               bindings = <&kp>, <&kp>;
           };
+
           mmv {
-              #binding-cells = <2>;
               trigger-period-ms = <16>;        // matches QMK 60Hz
               delay-ms = <0>;
               time-to-max-speed-ms = <120>;    // hold ramps up speed
