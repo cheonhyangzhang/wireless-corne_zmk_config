@@ -48,7 +48,7 @@
               #binding-cells = <0>;
               tapping-term-ms = <MOUSE_TAPPING_TERM>;
               flavor = "tap-preferred";
-              bindings = <&move_x>, <&move_x>;
+              bindings = <&mmv>, <&mmv>;
           };
         };
 
