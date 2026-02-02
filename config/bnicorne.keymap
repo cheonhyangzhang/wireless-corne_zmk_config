@@ -95,6 +95,17 @@
                     x = <0>;
                         y = <MOUSE_FAST>;
           };
+
+          mouse_move_right: mouse_move_right {
+                compatible = "zmk,behavior-hold-tap";
+                #binding-cells = <0>;
+                tapping-term-ms = <MOUSE_TAPPING_TERM>;
+                flavor = "tap-preferred";
+                bindings = <
+                  &mouse_move_right_slow
+                  &mouse_move_right_fast
+                >;
+          };
         };
 
         conditional_layers {
@@ -122,7 +133,7 @@
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
         &none &none   &none   &none   &none  &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &mmv MOVE_Y(-MOUSE_FAST)    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &mouse_mt MOVE_X(-MOUSE_SLOW) MOVE_X(-MOUSE_FAST)    &mmv MOVE_Y(MOUSE_FAST)  &mmv MOVE_X(MOUSE_FAST)  &mkp RCLK     &none
+        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &mouse_mt MOVE_X(-MOUSE_SLOW) MOVE_X(-MOUSE_FAST)    &mmv MOVE_Y(MOUSE_FAST)  &mouse_move_right &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
