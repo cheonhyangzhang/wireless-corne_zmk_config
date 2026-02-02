@@ -59,6 +59,42 @@
                 x = <MOUSE_FAST>;
                 y = <0>;
           };
+
+          mouse_move_left_slow: mouse_move_left_slow {
+                compatible = "zmk,behavior-mouse-move";
+                    x = <-MOUSE_SLOW>;
+                        y = <0>;
+          };
+
+          mouse_move_left_fast: mouse_move_left_fast {
+                compatible = "zmk,behavior-mouse-move";
+                    x = <-MOUSE_FAST>;
+                        y = <0>;
+          };
+
+          mouse_move_up_slow: mouse_move_up_slow {
+                compatible = "zmk,behavior-mouse-move";
+                    x = <0>;
+                        y = <-MOUSE_SLOW>;
+          };
+
+          mouse_move_up_fast: mouse_move_up_fast {
+                compatible = "zmk,behavior-mouse-move";
+                    x = <0>;
+                        y = <-MOUSE_FAST>;
+          };
+
+          mouse_move_down_slow: mouse_move_down_slow {
+                compatible = "zmk,behavior-mouse-move";
+                    x = <0>;
+                        y = <MOUSE_SLOW>;
+          };
+
+          mouse_move_down_fast: mouse_move_down_fast {
+                compatible = "zmk,behavior-mouse-move";
+                    x = <0>;
+                        y = <MOUSE_FAST>;
+          };
         };
 
         conditional_layers {
