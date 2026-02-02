@@ -38,37 +38,8 @@
           mmv {
               trigger-period-ms = <16>;      // ≈ MOUSEKEY_INTERVAL 16
               delay-ms = <20>;                // ≈ MOUSEKEY_DELAY 0
-              time-to-max-speed-ms = <800>;  // smoother than QMK’s 40ms steps
+              time-to-max-speed-ms = <2000>;  // smoother than QMK’s 40ms steps
               acceleration-exponent = <0>;
-          };
-          mouse_mt: mouse_mt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mmv>, <&mmv>;
-          };
-          mouse_move_right_slow: mouse_move_right_slow {
-                compatible = "zmk,behavior-mouse-move";
-                x = <MOUSE_SLOW>;
-                y = <0>;
-          };
-
-          mouse_move_right_fast: mouse_move_right_fast {
-                compatible = "zmk,behavior-mouse-move";
-                x = <MOUSE_FAST>;
-                y = <0>;
-          };
-
-          mouse_move_right: mouse_move_right {
-                compatible = "zmk,behavior-hold-tap";
-                #binding-cells = <2>;
-                tapping-term-ms = <MOUSE_TAPPING_TERM>;
-                flavor = "tap-preferred";
-                bindings = <
-                  &mouse_move_right_slow
-                  &mouse_move_right_fast
-                >;
           };
         };
 
@@ -97,7 +68,7 @@
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
         &none &none   &none   &none   &none  &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &mmv MOVE_Y(-MOUSE_FAST)    &msc SCRL_LEFT    &none         &none
-        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &mouse_mt MOVE_X(-MOUSE_SLOW) MOVE_X(-MOUSE_FAST)    &mmv MOVE_Y(MOUSE_FAST)  &mouse_move_right &mkp RCLK     &none
+        &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &mmv MOVE_X(-MOUSE_FAST) &mmv MOVE_Y(MOUSE_FAST)  &mmv MOVE_X(-MOUSE_FAST) &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
             };
