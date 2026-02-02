@@ -20,9 +20,9 @@
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 100  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 10    // default: 10
-#define MOUSE_FAST 1000
+#define MOUSE_FAST 800 // 1000 seems file, now try smaller to see if better
 #define MOUSE_SLOW 120
-#define MOUSE_SCROLL_SPEED 50
+#define MOUSE_SCROLL_SPEED 40
 #define MOUSE_TAPPING_TERM 180
 
 / {
