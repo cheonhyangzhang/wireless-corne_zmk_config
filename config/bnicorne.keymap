@@ -68,7 +68,7 @@
               bindings = <
 
         &none &none   &none   &none   &none     &none   &none           &none           &none           &none             &none         &none
-        &none &none   &kp LALT   &kp LGUI   &kp LCTRL     &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc SCRL_RIGHT &mmv MOVE_Y(-MOUSE_FAST)    &msc SCRL_LEFT    &none         &none
+        &none &none   &kp LALT   &kp LGUI   &kp LCTRL     &none   &msc MOVE_Y(-MOUSE_SCROLL_SPEED)  &msc MOVE_X(MOUSE_SCROLL_SPEED) &mmv MOVE_Y(-MOUSE_FAST)    &msc MOVE_X(-MOUSE_SCROLL_SPEED)    &none         &none
         &none &none   &none   &none   &none     &none  &msc MOVE_Y(MOUSE_SCROLL_SPEED) &mmv MOVE_X(-MOUSE_FAST) &mmv MOVE_Y(MOUSE_FAST)  &mmv MOVE_X(MOUSE_FAST) &mkp RCLK     &none
         &trans  &trans  &trans  &mkp LCLK &trans  &none
                     >;
